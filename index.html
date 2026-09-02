@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IS Career Launchpad</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a href="#" class="brand">
+          <div class="brand-mark">BYU</div>
+          <div>
+            <div class="brand-title">Information Systems</div>
+            <div class="brand-subtitle">Marriott School of Business</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#careers">Explore Careers</a>
+          <a href="#interview">Interview Prep</a>
+          <a href="#">Resources</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">IS Career Launchpad</div>
+        <h1>Discover where Information Systems can take you.</h1>
+        <p>
+          Explore IS career paths, learn what professionals actually do,
+          and prepare for the interviews that can launch your career.
+        </p>
+        <a href="#careers" class="primary-button">Explore Career Paths ↓</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="container intro-grid">
+        <div>
+          <div class="eyebrow">What is Information Systems?</div>
+          <h2>The connection between technology and business.</h2>
+          <p>
+            Information Systems professionals use technology, data, and business
+            strategy to solve real organizational problems. That combination gives
+            IS students the flexibility to pursue both highly technical careers and
+            business-focused technology roles.
+          </p>
+        </div>
+
+        <div class="intro-callout">
+          <p>
+            One degree gives you access to careers on both sides of the technology
+            and business world.
+          </p>
+
+          <div class="side-types">
+            <div class="side-type">
+              <strong>TECHNOLOGY</strong>
+              <span>Systems, infrastructure & security</span>
+            </div>
+
+            <div class="side-type">
+              <strong>BUSINESS</strong>
+              <span>Analysis, risk & strategy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="career-section" id="careers">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Explore your options</div>
+          <h2>IS Career Paths</h2>
+          <p>
+            Click a career to see a quick overview of the role, common tools,
+            and where you can go next.
+          </p>
+        </div>
+
+        <div class="career-map">
+          <div class="degree-box">
+            <small>Your Degree</small>
+            <strong>Information Systems</strong>
+          </div>
+
+          <div class="tree-stem"></div>
+          <div class="tree-branch"></div>
+
+          <div class="category-grid">
+            <div class="category-drop"></div>
+            <div class="category-drop"></div>
+          </div>
+
+          <div class="career-columns">
+
+            <!-- TECHNOLOGY -->
+            <div class="career-column">
+              <div class="category-title">Technology</div>
+              <div class="category-line"></div>
+              <div class="category-split"></div>
+
+              <div class="card-drops">
+                <div class="card-drop"></div>
+                <div class="card-drop"></div>
+              </div>
+
+              <div class="career-cards">
+                <button
+                  class="career-card"
+                  data-career="Cloud Infrastructure"
+                  data-summary="Design, deploy, and maintain the cloud systems and infrastructure organizations rely on to run applications, store data, and scale securely."
+                  data-tools="AWS · Azure · Networking · Linux"
+                >
+                  <strong>Cloud Infrastructure</strong>
+                  <span>Cloud systems & infrastructure</span>
+                </button>
+
+                <button
+                  class="career-card"
+                  data-career="Security Analyst"
+                  data-summary="Protect systems, networks, and organizational data by monitoring threats, identifying vulnerabilities, and helping reduce cybersecurity risk."
+                  data-tools="Security · Networks · Risk · SIEM"
+                >
+                  <strong>Security Analyst</strong>
+                  <span>Cybersecurity & risk</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- BUSINESS -->
+            <div class="career-column">
+              <div class="category-title">Business</div>
+              <div class="category-line"></div>
+              <div class="category-split"></div>
+
+              <div class="card-drops">
+                <div class="card-drop"></div>
+                <div class="card-drop"></div>
+              </div>
+
+              <div class="career-cards">
+                <button
+                  class="career-card"
+                  data-career="Business Analyst"
+                  data-summary="Connect business needs with technology solutions by gathering requirements, analyzing processes, and helping teams make better system decisions."
+                  data-tools="SQL · Requirements · Process Mapping · Excel"
+                >
+                  <strong>Business Analyst</strong>
+                  <span>Business & technology</span>
+                </button>
+
+                <button
+                  class="career-card"
+                  data-career="IT Auditor"
+                  data-summary="Evaluate technology systems, controls, and processes to identify risks, improve compliance, and help organizations protect critical information."
+                  data-tools="IT Controls · Risk · Compliance · Audit"
+                >
+                  <strong>IT Auditor</strong>
+                  <span>Controls, systems & risk</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="career-preview" id="careerPreview" aria-live="polite">
+            <div class="preview-label">Career Preview</div>
+            <h3 id="previewTitle"></h3>
+            <p id="previewSummary"></p>
+            <div class="preview-tools" id="previewTools"></div>
+            <a href="#" class="preview-link" id="previewLink">Explore Career →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interview-cta" id="interview">
+      <div class="container cta-inner">
+        <div>
+          <div class="eyebrow">Know where you're headed?</div>
+          <h2>Practice for the interview.</h2>
+          <p>
+            Choose a career and practice realistic behavioral and technical
+            interview questions for that specific role.
+          </p>
+        </div>
+
+        <button class="cta-button">Start Interview Prep →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    IS Career Launchpad · BYU Information Systems
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
 
