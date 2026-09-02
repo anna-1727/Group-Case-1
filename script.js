@@ -5,8 +5,16 @@ const previewSummary = document.getElementById("previewSummary");
 const previewTools = document.getElementById("previewTools");
 const previewLink = document.getElementById("previewLink");
 
+const careerPages = {
+  "Software Engineer": "programming.html",
+  "Security Analyst": "security.html",
+  "Business Analyst": "ba.html",
+  "IT Auditor": "audit.html"
+};
+
 careerCards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
+
     careerCards.forEach((otherCard) => {
       otherCard.classList.remove("active");
     });
@@ -21,8 +29,7 @@ careerCards.forEach((card) => {
     previewSummary.textContent = summary;
     previewTools.textContent = "Common tools: " + tools;
 
-    const slug = career.toLowerCase().replaceAll(" ", "-");
-    previewLink.href = "careers/" + slug + ".html";
+    previewLink.href = careerPages[career] || "#";
 
     preview.classList.add("visible");
   });
