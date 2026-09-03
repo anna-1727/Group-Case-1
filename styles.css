@@ -50,6 +50,9 @@
       background: var(--navy);
       color: var(--white);
       border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .nav-inner {
@@ -119,7 +122,7 @@
     .hero {
       background: var(--navy);
       color: white;
-      padding: 72px 0 84px;
+      padding: 56px 0 62px;
     }
 
     .eyebrow {
@@ -150,6 +153,17 @@
       color: rgba(255,255,255,0.82);
     }
 
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-actions .primary-button {
+      margin-top: 0;
+    }
+
     .primary-button {
       display: inline-block;
       margin-top: 28px;
@@ -159,6 +173,28 @@
       border: none;
       border-radius: 6px;
       font-weight: 700;
+    }
+
+    .secondary-button {
+      display: inline-block;
+      padding: 11px 20px;
+      border: 2px solid rgba(255, 255, 255, 0.92);
+      border-radius: 6px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .secondary-button:hover {
+      background: white;
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
     }
 
     /* WHAT IS IS */
@@ -954,5 +990,149 @@
   }
   .page-hero {
     padding-top: 44px;
+  }
+}
+
+/* =========================================================
+   POLISH: SUBTLE PAGE MOTION + HOVER STATES
+   ========================================================= */
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: pageEnter .35s ease-out both;
+}
+
+.hero .container,
+.page-hero .container,
+.resources-hero .container {
+  animation: contentRise .48s ease-out both;
+}
+
+/* Navbar feels responsive without being flashy */
+.nav-links a {
+  position: relative;
+  transition: background .2s ease, transform .2s ease, opacity .2s ease;
+}
+
+.nav-links > a:hover,
+.nav-dropdown > a:hover {
+  transform: translateY(-1px);
+}
+
+/* Primary buttons */
+.primary-button,
+.cta-button,
+.cta-button-outline,
+.submit-btn,
+.reset-btn {
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    color .2s ease;
+}
+
+.primary-button:hover,
+.cta-button:hover,
+.submit-btn:hover,
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 46, 93, 0.16);
+}
+
+.primary-button:active,
+.cta-button:active,
+.cta-button-outline:active,
+.submit-btn:active,
+.reset-btn:active,
+.career-card:active,
+.resource-card:active {
+  transform: translateY(0);
+}
+
+/* Career cards: clearer hover and selected state */
+.career-card {
+  transition:
+    border-color .22s ease,
+    transform .22s ease,
+    box-shadow .22s ease,
+    background .22s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(0, 46, 93, 0.13);
+}
+
+.career-card.active {
+  border-color: var(--blue);
+  background: var(--soft);
+  box-shadow: 0 10px 22px rgba(0, 46, 93, 0.12);
+}
+
+/* Resource cards */
+.resource-card {
+  transition:
+    border-color .22s ease,
+    transform .22s ease,
+    box-shadow .22s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(0, 46, 93, 0.13);
+}
+
+/* Career detail sidebar gets a tiny lift on hover */
+.quick-facts {
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.quick-facts:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0, 46, 93, 0.10);
+}
+
+/* Interview questions appear smoothly */
+.question-block {
+  animation: contentRise .35s ease-out both;
+}
+
+/* Make keyboard focus obvious and polished */
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(0, 98, 163, .35);
+  outline-offset: 3px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
   }
 }

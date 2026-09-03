@@ -166,9 +166,9 @@
             <span>Cybersecurity & threat detection</span>
           </button>
 
-          <button class="career-card" data-track="cloud_infrastructure">
-            <strong>Cloud Infrastructure</strong>
-            <span>Cloud systems & architecture</span>
+          <button class="career-card" data-track="software_engineer">
+            <strong>Software Engineer</strong>
+            <span>Programming & application development</span>
           </button>
 
           <button class="career-card" data-track="it_auditor">
@@ -177,7 +177,7 @@
           </button>
 
           <button class="career-card" data-track="it_business_analyst">
-            <strong>IT Business Analyst</strong>
+            <strong>Business Analyst</strong>
             <span>Requirements & process mapping</span>
           </button>
         </div>
@@ -633,219 +633,215 @@
         }
       ]
     },
-    "cloud_infrastructure": {
-      "cloud_fundamentals": [
+    "software_engineer": {
+      "programming_fundamentals": [
         {
-          "question": "Explain the difference between IaaS, PaaS, and SaaS.",
-          "good_answer": "IaaS gives you raw compute, storage, and networking. PaaS gives you a managed environment to build apps without worrying about servers. SaaS is a fully managed application you just use. I usually explain it as: IaaS is renting hardware, PaaS is renting a platform, and SaaS is renting the finished product."
+          "question": "What is the difference between a variable and a constant?",
+          "good_answer": "A variable stores a value that can change while a constant is intended to stay the same. I use constants for values that should not be reassigned because it makes the code easier to understand and safer to maintain."
         },
         {
-          "question": "What is cloud elasticity?",
-          "good_answer": "Elasticity means resources automatically scale up or down based on demand. I like it because it keeps performance stable without overpaying for unused capacity."
+          "question": "Explain the difference between an array and an object.",
+          "good_answer": "An array is an ordered collection of values, while an object stores values by named keys. I use arrays when order matters and objects when I need to describe something with specific properties."
         },
         {
-          "question": "Explain what a cloud region is.",
-          "good_answer": "A region is a physical geographic area where cloud data centers exist. I choose regions based on latency, compliance, and redundancy needs."
+          "question": "What is a function and why would you use one?",
+          "good_answer": "A function is a reusable block of code that performs a specific task. I use functions to avoid repeating logic, make code easier to test, and break larger problems into smaller pieces."
         },
         {
-          "question": "What is a VPC?",
-          "good_answer": "A VPC is your own isolated virtual network in the cloud. I use it to control IP ranges, subnets, routing, and security boundaries."
+          "question": "Explain what a loop does.",
+          "good_answer": "A loop repeats a block of code while a condition is true or for each item in a collection. I use loops when the same operation needs to be applied to multiple values."
         },
         {
-          "question": "Explain the shared responsibility model.",
-          "good_answer": "The cloud provider handles the security *of* the cloud, and I handle security *in* the cloud. I always make sure teams understand where their responsibilities begin."
+          "question": "What is the difference between == and === in JavaScript?",
+          "good_answer": "Double equals allows type coercion, while triple equals compares both type and value. I normally use triple equals because it is more predictable."
         },
         {
-          "question": "What is serverless computing?",
-          "good_answer": "Serverless means the cloud provider manages the servers and scaling for you. You just write functions and pay for execution time."
+          "question": "What does object-oriented programming mean?",
+          "good_answer": "Object-oriented programming organizes code around objects that combine data and behavior. Concepts like classes, encapsulation, inheritance, and polymorphism can help structure larger applications."
         },
         {
-          "question": "Explain cloud redundancy.",
-          "good_answer": "Redundancy means having multiple copies or failover systems so services stay available. I use multi-zone or multi-region setups depending on the criticality."
+          "question": "What is recursion?",
+          "good_answer": "Recursion is when a function calls itself to solve smaller versions of the same problem. It needs a base case so the calls eventually stop."
         },
         {
-          "question": "What is a cloud SLA?",
-          "good_answer": "An SLA defines the uptime guarantee. I check SLAs when designing systems to make sure they meet business requirements."
+          "question": "What is an algorithm?",
+          "good_answer": "An algorithm is a step-by-step process for solving a problem. When choosing one, I think about correctness, readability, and how efficiently it uses time and memory."
         },
         {
-          "question": "Explain cloud federation.",
-          "good_answer": "Federation lets identities from one system authenticate into another. I use it to unify access across cloud and on-prem environments."
+          "question": "Explain the difference between syntax errors and logic errors.",
+          "good_answer": "A syntax error means the code does not follow the language rules and may not run. A logic error means the code runs but produces the wrong result, so I usually find those through testing and debugging."
         },
         {
-          "question": "What is multi-cloud?",
-          "good_answer": "Multi-cloud means using more than one cloud provider. I usually recommend it when a business wants redundancy or wants to avoid vendor lock-in."
+          "question": "What does it mean for code to be maintainable?",
+          "good_answer": "Maintainable code is easy for someone else to understand, change, and test. I try to use clear names, small functions, consistent formatting, and useful comments where the reasoning is not obvious."
         }
       ],
-
-      "networking_and_security": [
+      "web_and_apis": [
         {
-          "question": "Describe how you secure cloud networks.",
-          "good_answer": "I start with segmentation, restrict inbound traffic, enforce security groups and ACLs, and monitor logs. I also make sure no public access is enabled unless absolutely necessary."
+          "question": "What happens when you enter a URL into a browser?",
+          "good_answer": "At a high level, the browser resolves the domain, connects to the server, sends an HTTP request, receives a response, and renders the returned HTML, CSS, and JavaScript."
         },
         {
-          "question": "Explain what a cloud firewall is.",
-          "good_answer": "A cloud firewall filters traffic at the network edge. I configure rules based on least privilege and regularly review them."
+          "question": "What is an API?",
+          "good_answer": "An API is a defined way for software systems to communicate. In web development I often use APIs so a frontend can request or send data to a backend service."
         },
         {
-          "question": "What is a cloud NAT gateway?",
-          "good_answer": "A NAT gateway lets private resources reach the internet without exposing them. I use it to keep internal workloads secure."
+          "question": "Explain the difference between GET and POST requests.",
+          "good_answer": "GET is generally used to retrieve data and POST is generally used to submit or create data. I also pay attention to the API contract and how the endpoint is designed."
         },
         {
-          "question": "Explain encryption in transit.",
-          "good_answer": "Encryption in transit protects data moving between systems. I enforce TLS everywhere and verify certificates."
+          "question": "What is JSON?",
+          "good_answer": "JSON is a lightweight text format for representing structured data with objects and arrays. It is commonly used to exchange data between web clients and APIs."
         },
         {
-          "question": "Describe how you secure APIs in the cloud.",
-          "good_answer": "I enforce authentication, rate limiting, and input validation. I also use API gateways to centralize security controls."
+          "question": "What is the DOM?",
+          "good_answer": "The DOM is the browser's object representation of an HTML page. JavaScript can read and modify it to change content, styles, and behavior after the page loads."
         },
         {
-          "question": "What is identity and access management (IAM)?",
-          "good_answer": "IAM controls who can access what. I design roles around least privilege and regularly audit permissions."
+          "question": "What is the difference between frontend and backend development?",
+          "good_answer": "Frontend development focuses on what users interact with in the browser or app. Backend development handles server-side logic, data access, authentication, APIs, and other services behind the interface."
         },
         {
-          "question": "Explain cloud key management.",
-          "good_answer": "Key management involves storing and rotating encryption keys. I use managed key vaults so keys never leave secure hardware."
+          "question": "Why is input validation important?",
+          "good_answer": "Input validation helps prevent bad or unexpected data from entering the system. I validate on the client for usability and on the server for security and correctness."
         },
         {
-          "question": "Describe how you detect cloud security issues.",
-          "good_answer": "I rely on cloud-native security tools, SIEM alerts, and configuration scanners. Anything unusual gets investigated immediately."
+          "question": "What does HTTP status code 404 mean?",
+          "good_answer": "A 404 means the requested resource was not found. I would check the URL, routing, resource ID, and server configuration depending on where the request failed."
         },
         {
-          "question": "What is a WAF?",
-          "good_answer": "A WAF protects web apps from attacks like SQL injection. I use it as a layer of defense for public-facing services."
+          "question": "What is authentication versus authorization?",
+          "good_answer": "Authentication verifies who a user is, while authorization determines what that user is allowed to do. A user can be authenticated but still not have permission for a specific resource."
         },
         {
-          "question": "Explain zero trust in cloud environments.",
-          "good_answer": "Zero trust means never assuming anything is safe. I enforce strict authentication, authorization, and continuous monitoring."
+          "question": "What is responsive web design?",
+          "good_answer": "Responsive design allows a layout to adapt to different screen sizes. I usually use flexible layouts, relative sizing, and media queries so the interface remains usable across devices."
         }
       ],
-
-      "compute_and_containers": [
+      "databases_and_sql": [
         {
-          "question": "Explain autoscaling.",
-          "good_answer": "Autoscaling automatically adjusts compute resources based on demand. I configure scaling policies to balance cost and performance."
+          "question": "What is a primary key?",
+          "good_answer": "A primary key uniquely identifies each row in a table. It should be unique and stable so other tables can reliably reference that record."
         },
         {
-          "question": "What is containerization?",
-          "good_answer": "Containerization packages applications with their dependencies. I like it because it makes deployments consistent across environments."
+          "question": "What is a foreign key?",
+          "good_answer": "A foreign key is a field that references a key in another table. It helps represent relationships and maintain referential integrity."
         },
         {
-          "question": "Explain Kubernetes.",
-          "good_answer": "Kubernetes orchestrates containers — it handles scaling, load balancing, and self-healing. I use it for large distributed applications."
+          "question": "Explain the difference between INNER JOIN and LEFT JOIN.",
+          "good_answer": "INNER JOIN returns rows that match in both tables. LEFT JOIN returns every row from the left table and matching rows from the right, using nulls when there is no match."
         },
         {
-          "question": "Describe how you deploy containers.",
-          "good_answer": "I build images, push them to a registry, and deploy them through an orchestrator like Kubernetes or ECS. I also scan images for vulnerabilities."
+          "question": "What does a WHERE clause do in SQL?",
+          "good_answer": "A WHERE clause filters rows based on conditions. I use it to limit a query to the records relevant to the question I am trying to answer."
         },
         {
-          "question": "What is serverless compute?",
-          "good_answer": "Serverless compute runs functions without managing servers. I use it for event-driven tasks or lightweight microservices."
+          "question": "What is database normalization?",
+          "good_answer": "Normalization organizes data to reduce unnecessary duplication and improve consistency. In practice I balance normalization with performance and the needs of the application."
         },
         {
-          "question": "Explain VM vs container.",
-          "good_answer": "VMs virtualize hardware, containers virtualize the OS. Containers are lighter and faster, but VMs are better for isolation."
+          "question": "What is the difference between SQL and NoSQL databases?",
+          "good_answer": "SQL databases typically use structured relational tables and a defined schema. NoSQL databases use other data models and can be useful when flexibility, scale, or specific access patterns are more important."
         },
         {
-          "question": "Describe how you optimize compute costs.",
-          "good_answer": "I right-size instances, use autoscaling, and leverage reserved or spot instances. Monitoring usage is key."
+          "question": "Why would you use an index in a database?",
+          "good_answer": "An index can speed up queries by helping the database locate rows without scanning the entire table. The tradeoff is extra storage and slower writes, so I would index fields that are queried frequently."
         },
         {
-          "question": "What is a container registry?",
-          "good_answer": "It’s a storage system for container images. I use private registries to control access and ensure image integrity."
+          "question": "What is a database transaction?",
+          "good_answer": "A transaction groups operations so they succeed or fail together. It helps protect data consistency when several related changes need to happen as one unit."
         },
         {
-          "question": "Explain cloud load balancing.",
-          "good_answer": "Load balancing distributes traffic across resources. I configure health checks so unhealthy instances are removed automatically."
+          "question": "How would you investigate a slow SQL query?",
+          "good_answer": "I would look at the query plan, filters, joins, indexes, row counts, and whether too much data is being selected. I would measure before and after changes instead of guessing."
         },
         {
-          "question": "Describe how you monitor compute workloads.",
-          "good_answer": "I track CPU, memory, disk, and network metrics. Alerts help me catch issues before they affect users."
+          "question": "Why should an application avoid storing passwords as plain text?",
+          "good_answer": "Plain-text passwords are exposed if the database is compromised. Passwords should be stored using a strong password-hashing approach with salts so the original password is not directly recoverable."
         }
       ],
-
-      "storage_and_databases": [
+      "debugging_and_testing": [
         {
-          "question": "Explain object storage.",
-          "good_answer": "Object storage holds unstructured data like images or logs. I use it because it’s scalable and cost-effective."
+          "question": "How do you approach debugging a problem you have never seen before?",
+          "good_answer": "I first reproduce the issue, narrow down where it occurs, inspect logs or error messages, form a hypothesis, and test one change at a time. I try to identify the root cause rather than just hide the symptom."
         },
         {
-          "question": "Describe how you secure cloud storage.",
-          "good_answer": "I enforce encryption, restrict public access, use IAM roles, and enable logging. Misconfigured storage buckets are a big risk."
+          "question": "What is a unit test?",
+          "good_answer": "A unit test checks a small piece of code such as a function in isolation. Good unit tests make expected behavior clear and help catch regressions when code changes."
         },
         {
-          "question": "What is a cloud CDN?",
-          "good_answer": "A CDN caches content closer to users. I use it to reduce latency and offload traffic from origin servers."
+          "question": "What is an edge case?",
+          "good_answer": "An edge case is an unusual or boundary condition that may behave differently from the common case. I think about empty values, very large inputs, invalid input, and boundary values when testing."
         },
         {
-          "question": "Explain database replication.",
-          "good_answer": "Replication creates copies of data for redundancy or performance. I choose between synchronous or asynchronous depending on consistency needs."
+          "question": "What is the difference between unit testing and integration testing?",
+          "good_answer": "Unit tests focus on individual components, while integration tests verify that multiple components work correctly together, such as an API communicating with a database."
         },
         {
-          "question": "Describe how you manage cloud backups.",
-          "good_answer": "I automate backups, set retention policies, and test restores. Backups are useless if you never verify them."
+          "question": "What information would you include in a useful bug report?",
+          "good_answer": "I would include the expected behavior, actual behavior, exact steps to reproduce, environment details, screenshots or logs when helpful, and the severity or impact."
         },
         {
-          "question": "What is a storage lifecycle policy?",
-          "good_answer": "It automatically moves data to cheaper storage tiers over time. I use it to reduce long-term storage costs."
+          "question": "Why are logs useful?",
+          "good_answer": "Logs provide a record of what an application was doing before and during a problem. I use them to trace requests, identify errors, and gather evidence instead of debugging only from symptoms."
         },
         {
-          "question": "Explain encryption at rest.",
-          "good_answer": "Encryption at rest protects stored data. I rely on managed encryption so keys are handled securely."
+          "question": "What is regression testing?",
+          "good_answer": "Regression testing checks that existing functionality still works after a change. Automated tests are especially useful because they can repeatedly verify important behavior."
         },
         {
-          "question": "Describe how you optimize storage costs.",
-          "good_answer": "I use lifecycle policies, compress data, and choose the right storage class. Monitoring helps avoid surprises."
+          "question": "How would you test a login form?",
+          "good_answer": "I would test valid and invalid credentials, empty fields, input limits, error messages, session behavior, and security-related cases such as repeated failed attempts. I would also verify that successful login sends the user to the correct place."
         },
         {
-          "question": "What is a managed database service?",
-          "good_answer": "It’s a database where the cloud provider handles patching, backups, and scaling. I use it to reduce operational overhead."
+          "question": "What would you do if your code works locally but fails in production?",
+          "good_answer": "I would compare environments, configuration, dependencies, data, permissions, logs, and deployment differences. I would avoid making random production changes and instead narrow the difference systematically."
         },
         {
-          "question": "Explain database scaling.",
-          "good_answer": "Vertical scaling adds more power to one instance, while horizontal scaling adds more instances. I choose based on workload patterns."
+          "question": "Why is it useful to reproduce a bug consistently?",
+          "good_answer": "A reproducible bug gives me a reliable way to investigate the cause and verify that a fix actually solved the problem. Without reproduction, it is much harder to know whether a change worked."
         }
       ],
-
-      "automation_and_devops": [
+      "git_and_collaboration": [
         {
-          "question": "What is infrastructure as code?",
-          "good_answer": "IaC means defining infrastructure in code so it’s repeatable and version-controlled. I use Terraform or CloudFormation to automate deployments."
+          "question": "What problem does Git solve?",
+          "good_answer": "Git tracks changes to source code over time and lets developers work safely in parallel. It makes it possible to review history, create branches, merge work, and recover earlier versions."
         },
         {
-          "question": "Describe how you use Terraform.",
-          "good_answer": "I write modules, manage state carefully, and use pipelines to apply changes. It keeps environments consistent."
+          "question": "What is a Git branch?",
+          "good_answer": "A branch is an independent line of development. I use branches to work on a feature or fix without changing the main version until the work is ready."
         },
         {
-          "question": "Explain CI/CD.",
-          "good_answer": "CI/CD automates building, testing, and deploying code. I use it to reduce manual errors and speed up releases."
+          "question": "What is a pull request?",
+          "good_answer": "A pull request proposes merging code from one branch into another. It gives the team a place to review changes, discuss them, run checks, and catch problems before merging."
         },
         {
-          "question": "Describe how you monitor cloud workloads.",
-          "good_answer": "I use cloud-native monitoring tools to track logs, metrics, and traces. Alerts help me catch issues early."
+          "question": "What is a merge conflict?",
+          "good_answer": "A merge conflict happens when Git cannot automatically combine competing changes. I resolve it by understanding both changes, choosing the correct final code, testing it, and then completing the merge."
         },
         {
-          "question": "What is configuration drift?",
-          "good_answer": "Drift happens when environments change outside of IaC. I prevent it by enforcing pipelines and scanning for differences."
+          "question": "Why are small commits useful?",
+          "good_answer": "Small focused commits make history easier to understand, review, and revert. I try to make each commit represent one logical change with a clear message."
         },
         {
-          "question": "Explain cloud tagging.",
-          "good_answer": "Tags help organize resources by owner, environment, or cost center. I use them for cost tracking and automation."
+          "question": "How would you respond to code review feedback you disagree with?",
+          "good_answer": "I would first make sure I understand the concern and ask questions if needed. Then I would explain my reasoning with evidence or tradeoffs and work toward the solution that is best for the codebase rather than treating the review personally."
         },
         {
-          "question": "Describe how you handle cloud incidents.",
-          "good_answer": "I investigate logs, identify root causes, apply fixes, and update documentation. I also look for ways to prevent similar incidents."
+          "question": "Why should developers avoid working directly on the main branch?",
+          "good_answer": "Feature branches reduce the risk of breaking the shared main branch and make review easier. Teams can test and discuss changes before merging them into the stable codebase."
         },
         {
-          "question": "What is a deployment pipeline?",
-          "good_answer": "It’s an automated workflow that builds, tests, and deploys code. I design pipelines to be fast and reliable."
+          "question": "What makes a good commit message?",
+          "good_answer": "A good commit message briefly explains what changed and why. It should be specific enough that someone reading the history can understand the purpose without opening every file."
         },
         {
-          "question": "Explain blue-green deployment.",
-          "good_answer": "Blue-green deployment uses two identical environments. I switch traffic to the new one only when it’s fully tested."
+          "question": "What would you do before merging a feature into main?",
+          "good_answer": "I would make sure the feature works, tests pass, conflicts are resolved, the code has been reviewed if required, and the branch is up to date enough to merge safely."
         },
         {
-          "question": "Describe how you automate cloud operations.",
-          "good_answer": "I use scripts, IaC, and cloud-native automation tools. Automation reduces human error and speeds up processes."
+          "question": "How do you work effectively when another developer is editing the same project?",
+          "good_answer": "I communicate about ownership, use separate branches, pull changes regularly, keep commits focused, and resolve conflicts early. Clear coordination is just as important as the Git commands."
         }
       ]
     },
@@ -1333,6 +1329,13 @@
       card.classList.add("active");
 
       generateInterview(card.dataset.track);
+
+      setTimeout(() => {
+        interviewArea.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 80);
     });
 
     submitBtn.addEventListener("click", () => {

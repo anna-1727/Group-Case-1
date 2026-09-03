@@ -6,10 +6,7 @@ const previewTools = document.getElementById("previewTools");
 const previewLink = document.getElementById("previewLink");
 
 careerCards.forEach((card) => {
-
-  // Show preview when hovering
   card.addEventListener("mouseenter", () => {
-
     careerCards.forEach((otherCard) => {
       otherCard.classList.remove("active");
     });
@@ -29,10 +26,7 @@ careerCards.forEach((card) => {
     preview.classList.add("visible");
   });
 
-
-  // Open career page when card is clicked
   card.addEventListener("click", () => {
     window.location.href = card.dataset.link;
   });
-
 });
