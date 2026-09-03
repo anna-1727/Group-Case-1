@@ -9,11 +9,11 @@
   <style>
     /* Enhanced question styling */
     .question-block {
-      margin-top: 28px;
+      margin-top: 16px;
       padding: 24px;
       background: var(--white);
       border-radius: 10px;
-      border: 2px solid var(--border);
+      border: 1px solid var(--border);
       box-shadow: 0 4px 12px rgba(0,46,93,0.06);
       transition: transform .2s ease, box-shadow .2s ease;
     }
@@ -40,7 +40,7 @@
       padding: 12px;
       border-radius: 6px;
       border: 1px solid var(--border);
-      min-height: 90px;
+      min-height: 32px;
       font-size: 14px;
       resize: vertical;
     }
@@ -94,7 +94,13 @@
     <nav class="navbar">
       <div class="container nav-inner">
         <a href="index.html" class="brand">
-          <div class="brand-mark">BYU</div>
+          <div class="brand-mark">
+            <img
+              src="images/byulogo.png"
+              alt="BYU Logo"
+              class="byu-logo"
+            />
+          </div>
           <div>
             <div class="brand-title">Information Systems</div>
             <div class="brand-subtitle">Marriott School of Business</div>
@@ -103,9 +109,20 @@
 
         <div class="nav-links">
           <a href="index.html">Home</a>
-          <a href="index.html#careers">Explore Careers</a>
+          <div class="nav-dropdown">
+            <a href="#careers" class="dropdown-toggle">
+              Explore Careers ▾
+            </a>
+
+            <div class="dropdown-menu">
+              <a href="programming.html">Software Engineer</a>
+              <a href="security.html">Security Analyst</a>
+              <a href="ba.html">Business Analyst</a>
+              <a href="audit.html">IT Auditor</a>
+            </div>
+          </div>
           <a href="interview.html">Interview Prep</a>
-          <a href="#">Resources</a>
+          <a href="resources.html">Resources</a>
         </div>
       </div>
     </nav>
@@ -175,9 +192,9 @@
     IS Career Launchpad · BYU Information Systems
   </footer>
 
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
 
-  <!-- EMBEDDED JSON (shortened for example; replace with full bank later) -->
+  <!-- EMBEDDED JSON -->
   <script>
     const questionData = {
   "behavioral": {
