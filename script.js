@@ -5,14 +5,9 @@ const previewSummary = document.getElementById("previewSummary");
 const previewTools = document.getElementById("previewTools");
 const previewLink = document.getElementById("previewLink");
 
-const careerPages = {
-  "Software Engineer": "programming.html",
-  "Security Analyst": "security.html",
-  "Business Analyst": "ba.html",
-  "IT Auditor": "audit.html"
-};
-
 careerCards.forEach((card) => {
+
+  // Show preview when hovering
   card.addEventListener("mouseenter", () => {
 
     careerCards.forEach((otherCard) => {
@@ -24,13 +19,20 @@ careerCards.forEach((card) => {
     const career = card.dataset.career;
     const summary = card.dataset.summary;
     const tools = card.dataset.tools;
+    const link = card.dataset.link;
 
     previewTitle.textContent = career;
     previewSummary.textContent = summary;
     previewTools.textContent = "Common tools: " + tools;
-
-    previewLink.href = careerPages[career] || "#";
+    previewLink.href = link;
 
     preview.classList.add("visible");
   });
+
+
+  // Open career page when card is clicked
+  card.addEventListener("click", () => {
+    window.location.href = card.dataset.link;
+  });
+
 });
