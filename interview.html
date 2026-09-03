@@ -1373,5 +1373,16 @@
     });
   </script>
 
+  <div class="chatbot" data-chatbot>
+    <div class="chatbot-panel" data-chatbot-panel hidden>
+      <div class="chatbot-header"><div><span class="chatbot-kicker">IS Career Guide</span><h2>Ask about IS</h2></div><button class="chatbot-close" type="button" data-chatbot-close aria-label="Close chat">x</button></div>
+      <div class="chatbot-messages" data-chatbot-messages aria-live="polite"><div class="chatbot-message chatbot-message-bot">Hi! I can help you find IS career paths, recruiting resources, and BYU Information Systems links.</div></div>
+      <div class="chatbot-suggestions" data-chatbot-suggestions><button type="button" data-chatbot-question="What careers can I explore?">Career paths</button><button type="button" data-chatbot-question="Where can I find BYU IS?">BYU IS</button><button type="button" data-chatbot-question="How should I prepare for recruiting?">Recruiting prep</button></div>
+      <form class="chatbot-form" data-chatbot-form><label class="sr-only" for="chatbotInput">Ask a question</label><input id="chatbotInput" data-chatbot-input type="text" placeholder="Ask a question..." autocomplete="off" /><button type="submit" aria-label="Send question">&#8594;</button></form><p class="chatbot-note">For official details, follow the links in my answers.</p>
+    </div>
+    <button class="chatbot-launcher" type="button" data-chatbot-open aria-label="Open IS Career Guide chat"><span class="chatbot-launcher-icon" aria-hidden="true">?</span><span class="chatbot-tooltip">Ask the IS Career Guide</span></button>
+  </div>
+  <script src="chatbot.js"></script>
+
 </body>
 </html>
