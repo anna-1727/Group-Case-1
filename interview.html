@@ -1282,96 +1282,166 @@
   </script>
 
   <!-- INTERVIEW LOGIC -->
-  <script>
-    const careerSelect = document.getElementById("careerSelect");
-    const interviewArea = document.getElementById("interviewArea");
-    const submitBtn = document.getElementById("submitAnswers");
-    const resetBtn = document.getElementById("resetInterview");
+<script>
+  const careerSelect = document.getElementById("careerSelect");
+  const interviewArea = document.getElementById("interviewArea");
+  const submitBtn = document.getElementById("submitAnswers");
+  const resetBtn = document.getElementById("resetInterview");
 
-    function pickOne(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
+  function pickOne(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  // --- KEYWORD BANK FOR EACH TRACK ---
+  const keywordBank = {
+    security_analyst: ["SIEM", "logs", "incident", "triage", "malware", "network", "alert", "investigate"],
+    cloud_infrastructure: ["AWS", "Azure", "scaling", "VPC", "IAM", "containers", "serverless", "infrastructure"],
+    it_auditor: ["controls", "risk", "SOX", "compliance", "audit", "evidence", "access review"],
+    it_business_analyst: ["requirements", "stakeholder", "process", "workflow", "data", "analysis", "SQL"]
+  };
+
+  // --- STAR DETECTION ---
+  function detectSTAR(answer) {
+    const s = /situation|context|background/i.test(answer);
+    const t = /task|goal|responsibility/i.test(answer);
+    const a = /action|steps|did/i.test(answer);
+    const r = /result|outcome|impact/i.test(answer);
+
+    let missing = [];
+    if (!s) missing.push("Situation");
+    if (!t) missing.push("Task");
+    if (!a) missing.push("Action");
+    if (!r) missing.push("Result");
+
+    return missing.length === 0
+      ? "Great STAR structure — you clearly covered Situation, Task, Action, and Result."
+      : `Your answer is missing: ${missing.join(", ")}. Add these parts to strengthen your story.`;
+  }
+
+  // --- KEYWORD DETECTION ---
+  function detectKeywords(answer, track) {
+    const keywords = keywordBank[track];
+    const found = keywords.filter(k => answer.toLowerCase().includes(k.toLowerCase()));
+
+    if (found.length === 0) {
+      return `Try including role‑specific terms like: ${keywords.slice(0, 4).join(", ")} to show technical depth.`;
     }
 
-    function generateInterview(track) {
-      interviewArea.innerHTML = "";
-      submitBtn.style.display = "inline-block";
-      resetBtn.style.display = "inline-block";
+    return `Nice use of role‑specific terms: ${found.join(", ")}.`;
+  }
 
-      const behavioralSections = Object.values(questionData.behavioral);
-      const technicalSections = Object.values(questionData.technical[track]);
+  // --- LENGTH FEEDBACK ---
+  function lengthFeedback(answer) {
+    if (answer.length < 40) return "Your answer is short — add more detail about what you personally did.";
+    if (answer.length > 500) return "Your answer is long — try focusing on the most important actions and results.";
+    return "Good length — clear and well‑developed.";
+  }
 
-      const finalQuestions = [];
-
-      behavioralSections.forEach(section => finalQuestions.push(pickOne(section)));
-      technicalSections.forEach(section => finalQuestions.push(pickOne(section)));
-
-      finalQuestions.forEach((q, i) => {
-        const block = document.createElement("div");
-        block.className = "question-block";
-
-        block.innerHTML = `
-          <h4>Question ${i + 1}</h4>
-          <p>${q.question}</p>
-          <textarea></textarea>
-          <div class="good-answer">Potential Answer: ${q.good_answer}</div>
-          <div class="feedback"></div>
-        `;
-
-        interviewArea.appendChild(block);
-      });
+  // --- CLARITY FEEDBACK ---
+  function clarityFeedback(answer) {
+    if (/we\b/i.test(answer) && !/\bi\b/i.test(answer)) {
+      return "You used 'we' a lot — try emphasizing your personal contribution with 'I'.";
     }
+    if (/maybe|sort of|kind of|probably/i.test(answer)) {
+      return "Your answer has some uncertain language — try being more confident and direct.";
+    }
+    return "Clear and confident tone — well done.";
+  }
 
-    careerSelect.addEventListener("click", (e) => {
-      const card = e.target.closest(".career-card");
-      if (!card) return;
 
-      document.querySelectorAll(".career-card").forEach(c => c.classList.remove("active"));
-      card.classList.add("active");
+  // --- GENERATE INTERVIEW ---
+  function generateInterview(track) {
+    interviewArea.innerHTML = "";
+    submitBtn.style.display = "inline-block";
+    resetBtn.style.display = "inline-block";
 
-      generateInterview(card.dataset.track);
+    const behavioralSections = Object.values(questionData.behavioral);
+    const technicalSections = Object.values(questionData.technical[track]);
 
-      setTimeout(() => {
-        interviewArea.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 80);
+    const finalQuestions = [];
+
+    behavioralSections.forEach(section => finalQuestions.push(pickOne(section)));
+    technicalSections.forEach(section => finalQuestions.push(pickOne(section)));
+
+    finalQuestions.forEach((q, i) => {
+      const block = document.createElement("div");
+      block.className = "question-block";
+
+      block.innerHTML = `
+        <h4>Question ${i + 1}</h4>
+        <p>${q.question}</p>
+        <textarea></textarea>
+        <div class="good-answer">Potential Answer: ${q.good_answer}</div>
+        <div class="feedback"></div>
+      `;
+
+      interviewArea.appendChild(block);
     });
+  }
 
-    submitBtn.addEventListener("click", () => {
-      const blocks = document.querySelectorAll(".question-block");
+  // --- CAREER CARD CLICK ---
+  careerSelect.addEventListener("click", (e) => {
+    const card = e.target.closest(".career-card");
+    if (!card) return;
 
-      blocks.forEach(block => {
-        const textarea = block.querySelector("textarea");
-        const answer = textarea.value.trim();
-        const feedback = block.querySelector(".feedback");
+    document.querySelectorAll(".career-card").forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
 
-        textarea.disabled = true;
-        block.querySelector(".good-answer").style.display = "block";
+    generateInterview(card.dataset.track);
 
-        if (answer.length < 40) {
-          feedback.textContent = "Your answer is a bit short — try adding more detail next time! You're doing great.";
-        } else if (answer.length > 500) {
-          feedback.textContent = "Your answer is quite long — consider being more concise. Still, great effort!";
-        } else {
-          feedback.textContent = "Nice job! Your answer is a solid length and shows good thought.";
-        }
-
-        feedback.style.display = "block";
+    setTimeout(() => {
+      interviewArea.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
       });
+    }, 80);
+  });
 
-      submitBtn.disabled = true;
+  // --- SUBMIT ANSWERS ---
+  submitBtn.addEventListener("click", () => {
+    const blocks = document.querySelectorAll(".question-block");
+    const track = document.querySelector(".career-card.active")?.dataset.track;
+
+    let summaryFeedback = [];
+
+    blocks.forEach(block => {
+      const textarea = block.querySelector("textarea");
+      const answer = textarea.value.trim();
+      const feedbackBox = block.querySelector(".feedback");
+
+      textarea.disabled = true;
+      block.querySelector(".good-answer").style.display = "block";
+
+      const f1 = lengthFeedback(answer);
+      const f2 = clarityFeedback(answer);
+      const f3 = detectSTAR(answer);
+      const f4 = detectKeywords(answer, track);
+
+      const combined = `${f1} ${f2} ${f3} ${f4}`;
+      feedbackBox.textContent = combined;
+      feedbackBox.style.display = "block";
+
+      summaryFeedback.push(f1, f2, f3, f4);
     });
 
-    resetBtn.addEventListener("click", () => {
-      interviewArea.innerHTML = "";
-      submitBtn.style.display = "none";
-      resetBtn.style.display = "none";
-      submitBtn.disabled = false;
+    // Add summary feedback at bottom
+    const summaryBox = document.createElement("div");
+    summaryBox.innerHTML = generateSummary(summaryFeedback);
+    interviewArea.appendChild(summaryBox);
 
-      document.querySelectorAll(".career-card").forEach(c => c.classList.remove("active"));
-    });
-  </script>
+    submitBtn.disabled = true;
+  });
+
+  // --- RESET INTERVIEW ---
+  resetBtn.addEventListener("click", () => {
+    interviewArea.innerHTML = "";
+    submitBtn.style.display = "none";
+    resetBtn.style.display = "none";
+    submitBtn.disabled = false;
+
+    document.querySelectorAll(".career-card").forEach(c => c.classList.remove("active"));
+  });
+</script>
 
   <div class="chatbot" data-chatbot>
     <div class="chatbot-panel" data-chatbot-panel hidden>
