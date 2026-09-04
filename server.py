@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from google import genai
@@ -5,7 +6,9 @@ from google import genai
 app = Flask(__name__)
 CORS(app)
 
-client = genai.Client(api_key="AQ.Ab8RN6JJM8NE0KKyh1CSaNA_EpdOAvymbasmhOe-A6a2Vk6BQg")
+# Reads your key from the terminal environment variable so it never touches Git
+api_key = os.environ.get("GEMINI_API_KEY", "")
+client = genai.Client(api_key=api_key)
 
 SYSTEM_PROMPT = """
 You are the IS Career Launchpad Assistant for BYU's Information Systems program.
