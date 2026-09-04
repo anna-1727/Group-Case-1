@@ -1374,3 +1374,8 @@ textarea:focus-visible {
     transition-duration: .01ms !important;
   }
 }
+
+/* Interview career track spacing */
+#careerSelect {
+  margin-top: 32px;
+}
